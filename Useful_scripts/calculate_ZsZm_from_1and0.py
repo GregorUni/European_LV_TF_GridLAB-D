@@ -1,3 +1,8 @@
+"""
+This script calculate Zs and Zm based on Z1 and Z0
+to create the Z11-Z33 matrix (in international units)
+"""
+
 import math
 import numpy
 
