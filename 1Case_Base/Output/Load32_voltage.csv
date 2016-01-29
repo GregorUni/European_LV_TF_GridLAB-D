@@ -1,0 +1,11 @@
+# file...... Output\Load32_voltage.csv
+# date...... Fri Jan 29 22:09:04 2016
+# user...... Gregorio
+# host...... (null)
+# target.... load 982
+# trigger... (none)
+# interval.. 0
+# limit..... 0
+# timestamp,voltage_C.real,voltage_C.imag
+2000-01-01 09:26:00 WET,+0.193443,+251.558
+2000-01-02 00:00:00 WET,+0.193443,+251.558
