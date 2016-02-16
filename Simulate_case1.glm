@@ -83,7 +83,7 @@ object recorder {
 
 object recorder {
 	 parent LOAD1;
-	 property voltage_A.real,voltage_A.imag;
+	 property voltage_A;
 	 limit 0;
 	 interval 0;
 	 file "Output_case1\\Load1_voltage.csv";
@@ -91,7 +91,7 @@ object recorder {
 
 object recorder {
 	 parent LOAD32;
-	 property voltage_C.real,voltage_C.imag;
+	 property voltage_C;
 	 limit 0;
 	 interval 0;
 	 file "Output_case1\\Load32_voltage.csv";
@@ -99,7 +99,7 @@ object recorder {
 
 object recorder {
 	 parent LOAD53;
-	 property voltage_B.real,voltage_B.imag;
+	 property voltage_B;
 	 limit 0;
 	 interval 0;
 	 file "Output_case1\\Load53_voltage.csv";

@@ -117,6 +117,7 @@ set grid
 set xrange [1:300]
 set xrange [0:1440]
 set xtic 0,100,1440
+set key left bottom
 
  plot   "Output_case2\\Load1_voltage.csv" every ::9 using (column(0)):2 with lines lw 2 lt 3 title "Load 1", \
     	"Output_case2\\Load32_voltage.csv" every ::9 using (column(0)):2 with lines lw 2 lt 2 title "Load 32", \
