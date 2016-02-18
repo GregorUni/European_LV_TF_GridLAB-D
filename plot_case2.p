@@ -3,7 +3,7 @@
  set terminal png size 900,700
  
  set autoscale 
-set output 'Case2_00_01_00.png'
+set output 'Plots_simple_view\\Case2_00_01_00.png'
 set multiplot layout 2,3 title "Case 2, time 00:01:00"
  
 
@@ -37,7 +37,7 @@ plot    "Output_case2\\output_voltage_1.csv" every ::4::906 using (column(0)):6 
 
 unset multiplot
 unset output
-set output 'Case2_09_26_00.png'
+set output 'Plots_simple_view\\Case2_09_26_00.png'
 set multiplot layout 2,3 title "Case 2, time 09:26:00"
  
 
@@ -73,7 +73,7 @@ plot    "Output_case2\\output_voltage_566.csv" every ::4::906 using (column(0)):
 
 unset multiplot
 unset output
-set output 'Case2_24_00_00.png'
+set output 'Plots_simple_view\\Case2_24_00_00.png'
 set multiplot layout 2,3 title "Case 2, time 24:00:00"
  
 
@@ -107,7 +107,7 @@ plot    "Output_case2\\output_voltage_1440.csv" every ::4::906 using (column(0))
 
 unset multiplot
 unset output
-set output 'Case2_Time_Series.png'
+set output 'Plots_simple_view\\Case2_Time_Series.png'
 set title "Case 2, Time Series"
 set key left top
 set terminal png size 900,400

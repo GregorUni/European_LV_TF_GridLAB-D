@@ -4,7 +4,7 @@
 
  
 set autoscale 
-set output 'Case1_gridcolor_00_01_00.png'
+set output 'Plots_simple_view\\grid_graph.png'
 set title "Case 1, time 00:01:00"
 
 #set grid
