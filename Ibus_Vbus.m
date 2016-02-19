@@ -42,8 +42,8 @@ CurrentA_mag= table2array(Current1p(2:size(Current1p,1),2));
 [CurrentReA,CurrentImA]= pol2cart(CurrentA_ang,CurrentA_mag); % pol2cart uses angles in radians too
 Current_rectA=CurrentReA+(CurrentImA*j);
 %length(Current_rect)-length(Lines_end_bus)%=0  confirmate same size
-VoltageA_ang= table2array(Voltage1p(2:size(Voltage1p,1),3));
-VoltageA_mag= table2array(Voltage1p(2:size(Voltage1p,1),2));
+VoltageA_ang= table2array(Voltage1p(1:size(Voltage1p,1)-56,3));
+VoltageA_mag= table2array(Voltage1p(1:size(Voltage1p,1)-56,2));
 [VoltageReA,VoltageImA]= pol2cart(VoltageA_ang,VoltageA_mag); % pol2cart uses angles in radians too
 Voltage_rectA=VoltageReA+(VoltageImA*j);
 
@@ -52,8 +52,8 @@ Current3p_ang= table2array(Current3p(2:size(Current3p,1),3)); %gridlab-d give it
 Current3p_mag= table2array(Current3p(2:size(Current3p,1),2));
 [CurrentRe3p,CurrentIm3p]= pol2cart(Current3p_ang,Current3p_mag); % pol2cart uses angles in radians too
 Current_rect3p=CurrentRe3p+(CurrentIm3p*j);
-Voltage3p_ang= table2array(Voltage3p(2:size(Voltage3p,1),3));
-Voltage3p_mag= table2array(Voltage3p(2:size(Voltage3p,1),2));
+Voltage3p_ang= table2array(Voltage3p(1:size(Voltage3p,1)-56,3));
+Voltage3p_mag= table2array(Voltage3p(1:size(Voltage3p,1)-56,2));
 [VoltageRe3p,VoltageIm3p]= pol2cart(Voltage3p_ang,Voltage3p_mag); % pol2cart uses angles in radians too
 Voltage_rect3p=VoltageRe3p+(VoltageIm3p*j);
 
@@ -66,33 +66,30 @@ Vbus3p=Voltage_rect3p; %Vbus for case1 with 3 phases
 % Lines_end_bus has direct relation of componentes with Current_rectA
 % select the correct currents to fulfill the Ibus vector
 %% Case 1, 1 phase
-IbusA=zeros(length(Current_rectA),1);
+IbusA=zeros(906,1);
+IbusA(1)=Current_rectA(1); %take the positive for the source
  for i=1:length(Load_bus)
-     for j=1:length(Lines_end_bus)
-         if(Load_bus(i)==Lines_end_bus(j))
-             IbusA=-(Current_rectA); %take the negative for the load
-         else
-             IbusA=0;
-         end
-     end
+     line_index=find(Lines_end_bus==Load_bus(i));
+     IbusA(Load_bus(i))=-Current_rectA(line_index); %take the negative for the load
  end
- IbusA(1)=Current_rectA(1); %take the positive for the source
+
 %% Case 1, 3 phases
-Ibus3p=zeros(length(Current_rect3p),1);
+Ibus3p=zeros(906,1);
+Ibus3p(1)=Current_rect3p(1); %take the positive for the source
  for i=1:length(Load_bus)
-     for j=1:length(Lines_end_bus)
-         if(Load_bus(i)==Lines_end_bus(j))
-             Ibus3p=-(Current_rect3p); %take the negative for the load
-         else
-             Ibus3p=0;
-         end
-     end
+     line_index=find(Lines_end_bus==Load_bus(i));
+     Ibus3p(Load_bus(i))=-Current_rect3p(line_index); %take the negative for the load
  end
- Ibus3p(1)=Current_rect3p(1); %take the positive for the source
 %% Display Ibus and Vbus in rectangulars
 
-[VbusA;Vbus3p;IbusA;Ibus3p]
+VbusA_mag =abs(VbusA);
+Vbus3p_mag=abs(Vbus3p);
+IbusA_mag=abs(IbusA);
+Ibus3p_mag=abs(Ibus3p);
+Vectors_output= table(VbusA_mag,Vbus3p_mag,IbusA_mag,Ibus3p_mag);
+%IbusA has 0 in some loads because the system is unbalanced
 
-
+savename='test_Zbus.mat';
+save(savename,'Vectors_output')
 
 
