@@ -1,0 +1,39 @@
+#Inom_for_max_Vdrop
+
+import numpy
+import math
+
+#r and x of positive sequence in Ohm/km
+r=[3.97,
+1.257,
+1.15,
+0.868,
+0.469,
+0.274,
+0.089,
+0.166,
+0.446,
+0.322]
+
+x=[0.099,
+0.085,
+0.088,
+0.092,
+0.075,
+0.073,
+0.0675,
+0.068,
+0.071,
+0.074]
+
+L=1 #assume the total length is 1 km
+In=500 #assume the total current on the feeder is this
+
+#Vnom=230
+#Vdrop_limit=Vnom-(Vnom*0.9)
+
+n=55 #number of loads
+
+Vdrop=numpy.real(0.5*(r+(x*1j))*L*In*(1+(1/(1.0*n))))
+
+print (Vdrop)

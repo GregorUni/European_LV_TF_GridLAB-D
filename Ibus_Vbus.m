@@ -1,5 +1,3 @@
-clear all
-
 
 %% Define files to read
 
@@ -86,10 +84,31 @@ VbusA_mag =abs(VbusA);
 Vbus3p_mag=abs(Vbus3p);
 IbusA_mag=abs(IbusA);
 Ibus3p_mag=abs(Ibus3p);
-Vectors_output= table(VbusA_mag,Vbus3p_mag,IbusA_mag,Ibus3p_mag);
+Mag= table(VbusA_mag,Vbus3p_mag,IbusA_mag,Ibus3p_mag);
 %IbusA has 0 in some loads because the system is unbalanced
 
-savename='test_Zbus.mat';
-save(savename,'Vectors_output')
+Complex= table(VbusA,Vbus3p,IbusA,Ibus3p);
 
+savename='test_Zbus_mag.mat';
+save(savename,'Mag')
+
+savename='test_Zbus_complex.mat';
+save(savename,'Complex')
+
+%% Call Zbus
+prepare_data();
+
+%% Make tests
+
+testI1p=Y*(VbusA);
+Compare1pI=table(testI1p,IbusA,abs(testI1p),abs(IbusA));
+
+testI3p=Y*(Vbus3p);
+Compare3pI=table(testI3p,Ibus3p,abs(testI3p),abs(Ibus3p));
+
+testV1p=Z*IbusA;
+Compare1pV=table(testV1p,VbusA,abs(testV1p),abs(VbusA));
+
+testV3p=Z*Ibus3p;
+Compare3pV=table(testV3p,Vbus3p,abs(testV3p),abs(Vbus3p));
 

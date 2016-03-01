@@ -16,7 +16,7 @@ of min and max power values. This simulates two charging periods in a day.
 #define Max_charger_power 20
 #define Min_charging_time 30
 
-#define Charging_power 4
+#define Charging_power 7.3
 double Charging_time=((double)Min_charging_time*((double)Max_charger_power/(double)Charging_power));
 
 //contain variables of each file
