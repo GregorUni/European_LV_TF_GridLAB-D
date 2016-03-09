@@ -1,4 +1,4 @@
-# Output_case1\output_current_1.csv run at 2000-01-01 00:01:00 EST on 907 links
+# Output_No_EVs\output_current_1.csv run at 2000-01-01 00:01:00 EST on 907 links
 link_name,currA_mag,currA_angle,currB_mag,currB_angle,currC_mag,currC_angle
 Source_Impedance,0.166895,-0.384961,0.136221,3.824525,0.156510,1.889304
 TR1,0.166895,-0.384961,0.136221,3.824525,0.156510,1.889304

@@ -1,4 +1,4 @@
-# Output_case1\output_voltage_1.csv run at 2000-01-01 00:01:00 EST on 963 nodes
+# Output_No_EVs\output_voltage_1.csv run at 2000-01-01 00:01:00 EST on 963 nodes
 node_name,voltA_mag,voltA_angle,voltB_mag,voltB_angle,voltC_mag,voltC_angle
 SourceBus,6668.395609,0.000000,6668.395609,4.188790,6668.395609,2.094395
 Bus1,252.162474,-0.523800,252.165300,3.665032,252.169773,1.570653
